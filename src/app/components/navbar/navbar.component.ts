@@ -5,8 +5,8 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterLink],
+ // standalone: true,
+  //imports: [RouterLink],
   providers: [],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -29,7 +29,7 @@ export class NavbarComponent {
 //EJEMPLO CON SIGNAL
     effect(() => {
       this.userName = this.userService.getUser()?.name ?? ''
-    });   
+    });
 
 
 

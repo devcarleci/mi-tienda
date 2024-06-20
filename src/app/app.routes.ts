@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TableComponent } from './pages/table/table.component';
 import { ProductComponent } from './pages/product/product.component';
 import { authGuard } from './services/guards/auth.guard';
+import { AdminComponent } from './pages/admin/admin/admin.component';
 
 export const routes: Routes = [
   {
@@ -15,25 +16,34 @@ export const routes: Routes = [
   },
   {
     path : 'login',
-    component : LoginComponent
+    //component : LoginComponent
+    loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)
   },
   {
     path : 'about',
-    component : AboutComponent
+    //component : AboutComponent
+    loadComponent: () => import('./pages/about/about.component').then(c => c.AboutComponent)
   },
   {
     path : 'post',
     canActivate : [authGuard],
-    component : PostComponent
+    //component : PostComponent
+    loadComponent: () => import('./pages/post/post.component').then(c => c.PostComponent)
   },
   {
     path : 'table',
     canActivate : [authGuard],
-    component : TableComponent
+    //component : TableComponent
+    loadComponent: () => import('./pages/table/table.component').then(c => c.TableComponent)
   },
   {
     path : 'product',
-    component : ProductComponent
+    //component : ProductComponent
+    loadComponent: () => import('./pages/product/product.component').then(c => c.ProductComponent)
+  },
+  {
+    path : 'admin',
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
   }
 
 ];
