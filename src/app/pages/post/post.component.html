@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+
+
+    @for (item of postList; track item.id) {
+      <div class="card-header">
+        comentarios
+      </div>
+      <ul class="list-group list-group-flush">
+
+      <li class="list-group-item">{{item.userId}}</li>
+      <li class="list-group-item">{{item.id}}</li>
+      <li class="list-group-item">{{item.title}}</li>
+      <li class="list-group-item">{{item.body}}</li>
+    </ul>
+      }
+
+
+</div>

@@ -1,0 +1,7 @@
+<main>
+  <h1 class="tienda"> Tienda </h1>
+
+  <app-tarjeta-bienvenida *ngFor = "let item of lista " titulo ="{{item.titulo}}" subTitulo ="{{item.subTitulo}}"  cuerpo ="{{item.cuerpo}}"  (dataSalida)="reciveData($event)">   </app-tarjeta-bienvenida>
+
+
+</main>

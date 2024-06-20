@@ -1,0 +1,59 @@
+<!-- <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Usuario</label>
+  <input type="email" class="form-control" id="txtUser" placeholder="name@example.com" formControlName="userName">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">contrasena</label>
+  <input type="password" class="form-control" id="txtPassword" placeholder="ingrese su contrasena" formControlName="userPassword">
+
+</div>
+
+<div class="col-12">
+  <button class="btn btn-primary" type="submit">iniciar </button>
+</div>
+
+</form> -->
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <img class="mb-4" src="assets/images/bootstrap-logo.png" alt="" width="72" height="57">
+  <h1 class="h3 mb-3 fw-normal">Iniciar Session</h1>
+
+  <div class="form-floating mb-3" >
+    <input type="email" class="form-control" id="txtUser" placeholder="name@example.com" formControlName="userName" ngModel  required>
+    <label for="floatingInput">Ingrese su correo</label>
+    <span *ngIf="this.loginForm.get('userName')?.errors?.['email']">
+      (El mail no es válido)
+    </span>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="txtPassword" placeholder="Password" formControlName="userPassword">
+    <label for = "floatingPassword">Ingrese su contrania</label>
+    <span *ngIf = "this.loginForm.get('userPassword')?.errors?.['minlength']">
+      (Debe tener como mínimo 4 caracteres)
+    </span>
+  </div>
+  <button class="btn btn-primary w-100 py-2" type="submit" >Iniciar</button>
+  <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
+
+  @if (!loginForm.valid && resultado !='') {
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">{{resultado}}</h4>
+    </div>
+  }
+</form>
+
+
+
+<!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="..." class="rounded me-2" alt="...">
+    <strong class="me-auto">Mensaje</strong>
+    <small>11 mins ago</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    {{resultado}}
+  </div>
+</div> -->
+
