@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
@@ -7,55 +7,58 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  private data: User;
+
   private userSubject = new BehaviorSubject<User | null>(null)
-  // user$ = this.userSubject.asObservable();
   user$ = this.userSubject.asObservable();
 
   private isAuthenticated = new BehaviorSubject<boolean>(false);
 
+  //EJEMPLO CON SEÑALES
+  private dataSignal = signal<User | null>(null);
+
   constructor() {
     console.log('USER SERVICE')
-    // Recuperar los datos del almacenamiento local al iniciar el servicio
-    const storedData = localStorage.getItem('user');
-    this.data = storedData ? JSON.parse(storedData) : null;
 
-    if (this.data) {
-      this.userSubject.next(this.data);
+    const storedData = localStorage.getItem('user');
+
+    let user = storedData ? JSON.parse(storedData) : null;
+
+    if (user) {
+      this.setUser(user)
     }
-   }
+
+  }
 
   isAuthenticatedUser(): Observable<boolean> {
     return this.isAuthenticated;
   }
 
-  setUser(user: any){
-     // Convertir el objeto user a una cadena JSON
-  let userString: string = JSON.stringify(user);
-  // Almacenar la cadena JSON en localStorage
+  setUser(user: any) {
+    // Convertir el objeto user a una cadena JSON
+    let userString: string = JSON.stringify(user);
+    // Almacenar la cadena JSON en localStorage
     localStorage.setItem('user', userString);
     this.userSubject.next(user)
     this.isAuthenticated.next(true);
+
+    //EJEMPLO CON SIGNAL
+    this.dataSignal.set(user);
   }
 
-  clearUser(){
+  clearUser() {
     localStorage.removeItem('user');
     this.isAuthenticated.next(false);
+    this.userSubject.next(null)
+
+      //EJEMPLO CON SIGNAL
+      this.dataSignal.set(null);
 
   }
 
   getUser() {
 
-    return this.data;
-
-    // let userString = localStorage.getItem('user');
-    // let user: User | null = null;
-    // if (userString) {
-    //   user = JSON.parse(userString)
-    // }
-
-    // this.userSubject.next(user);
-    // return user
+    //EJEMPLO CON SIGNAL
+    return this.dataSignal()
   }
 
 }

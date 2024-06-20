@@ -18,36 +18,14 @@ export class LoginComponent implements OnInit {
   private userService: UserService = inject(UserService)
 
  constructor(){}
+ 
   ngOnInit(): void {
     this.userService.clearUser()
   }
 
 
-
   resultado: string = '';
-  user: User = {
-    id: 0,
-    name: '',
-    username: '',
-    email: '',
-    address: {
-      street: '',
-      suite: '',
-      city: '',
-      zipcode: '',
-      geo: {
-        lat: '',
-        lng: ''
-      }
-    },
-    phone: '',
-    website: '',
-    company: {
-      name: '',
-      catchPhrase: '',
-      bs: ''
-    }
-  }
+  // user: User | null = null
 
   private authService: AuthService = inject(AuthService)
 

@@ -9,22 +9,22 @@ import { User } from './models/user.model';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NavbarComponent,LoaderComponent],
-  providers:[UserService],
+  providers:[],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 
 export class AppComponent {
 
-  private userService: UserService = inject(UserService)
+  // private userService: UserService = inject(UserService)
 
 
   title = 'mi-tienda';
 
-  userLogin: User | null = null;
+  // userLogin: User | null = null;
 
   constructor(){
-    this.userLogin = this.userService.getUser()
+    // this.userLogin = this.userService.getUser()
   }
 }
 
