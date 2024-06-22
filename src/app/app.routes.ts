@@ -42,6 +42,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/product/product.component').then(c => c.ProductComponent)
   },
   {
+    path : 'cupon',
+    loadComponent: () => import('./pages/cupon/cupon.component').then(c => c.CuponComponent)
+  },
+  {
+    path : 'cupon/:cuponid',
+    loadComponent: () => import('./pages/cupon/cupon.component').then(c => c.CuponComponent)
+  },
+  {
     path : 'admin',
     loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
   }
