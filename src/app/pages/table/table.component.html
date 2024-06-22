@@ -2,6 +2,20 @@
   <div class="d-flex" >
     <input #txtBuscar class="form-control me-2" (keyup)="buscar()"  type="search" placeholder="ingrese " aria-label="Search">
     <button class="btn btn-outline-success" (click)="buscar()" type="button">buscar</button>
+
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Meses
+      </a>
+
+      <ul class="dropdown-menu">
+        @for (item of meses; track item.id) {
+          <li><a class="dropdown-item" href="#">{{item.name}}</a></li>
+        }
+
+      </ul>
+    </div>
+
   </div>
 </div>
 <div class="col-12">
@@ -19,7 +33,7 @@
       @for (item of commentListFiltrado; track item.id) {
         <tr>
           <th scope="row">{{item.postId}}</th>
-          <td>{{item.id}}</td>
+          <td>{{item.id | currency:'S/ ' }}</td>
           <td>{{item.name}}</td>
           <td>{{item.email}}</td>
           <td>{{item.body}}</td>
