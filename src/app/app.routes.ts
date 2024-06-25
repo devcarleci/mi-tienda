@@ -11,6 +11,12 @@ import { AdminComponent } from './pages/admin/admin/admin.component';
 export const routes: Routes = [
   {
     path : '' ,
+    redirectTo :'home',
+    pathMatch : 'full'
+
+  },
+  {
+    path : 'home' ,
     component : HomeComponent
 
   },
@@ -52,7 +58,12 @@ export const routes: Routes = [
   {
     path : 'admin',
     loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
-  }
+  },
+  {
+    path : '**' ,
+    redirectTo : 'home'
+
+  },
 
 ];
 // rutas de carpetas
