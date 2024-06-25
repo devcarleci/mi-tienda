@@ -6,3 +6,5 @@
 
 nitlife
 crear cuenta cloudfire
+
+ firebase console crear cuenta
