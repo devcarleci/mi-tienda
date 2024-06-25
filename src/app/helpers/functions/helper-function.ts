@@ -1,5 +1,5 @@
 import { Month } from "../../models/month"
-import { monthsList } from "../../../assets/data/month.json"
+import { monthsList } from "../../../../public/assets/data/month.json"
 
 
 export class HelperFunction {
