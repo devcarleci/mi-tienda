@@ -15,7 +15,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class TableComponent implements OnInit {
 
-  meses: Month[] = []
+  mes es: Month[] = []
 
   private commentService: CommentService = inject(CommentService)
   commentList: Comment[] = []
