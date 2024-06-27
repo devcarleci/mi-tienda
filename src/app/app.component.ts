@@ -10,7 +10,7 @@ import { CommonComponentsModule } from './components/common-components/common-co
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,LoaderComponent, CommonComponentsModule],
+  imports: [RouterOutlet,LoaderComponent, CommonComponentsModule,],
   providers:[],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
