@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-navbar',
  // standalone: true,
   //imports: [RouterLink],
-  providers: [],
+  providers: [NgbCollapseModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.Default

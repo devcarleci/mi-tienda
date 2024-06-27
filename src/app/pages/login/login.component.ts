@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { UserLogin } from '../../models/user-login.model';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,9 @@ import { UserService } from '../../services/user.service';
 export class LoginComponent implements OnInit {
 
   private userService: UserService = inject(UserService)
-
+  private route: Router = inject(Router)
  constructor(){}
- 
+
   ngOnInit(): void {
     this.userService.clearUser()
   }
@@ -47,7 +48,9 @@ export class LoginComponent implements OnInit {
           throw new Error("usuario no valido, no existe")
         }
         this.userService.setUser(result)
+
         console.log('logeado')
+        this.route.navigate(['/admin'])
       })
       this.resultado = "Todos los datos son válidos";
 

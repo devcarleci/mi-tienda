@@ -3,7 +3,23 @@
     <input #txtBuscar class="form-control me-2" (keyup)="buscar()"  type="search" placeholder="ingrese " aria-label="Search">
     <button class="btn btn-outline-success" (click)="buscar()" type="button">buscar</button>
 
-    <div class="dropdown">
+    <div class="row">
+      <div class="col">
+    <div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+				Meses
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+        @for (item of meses; track item.id) {
+          <button ngbDropdownItem>{{item.name}}</button>
+        }
+			</div>
+		</div>
+      </div>
+    </div>
+
+    <!-- <div class="dropdown">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Meses
       </a>
@@ -14,7 +30,7 @@
         }
 
       </ul>
-    </div>
+    </div> -->
 
   </div>
 </div>

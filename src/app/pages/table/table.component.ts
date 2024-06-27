@@ -4,11 +4,12 @@ import { Comment } from '../../models/comment.model';
 import { CurrencyPipe } from '@angular/common';
 import { HelperFunction } from '../../helpers/functions/helper-function';
 import { Month } from '../../models/month';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, NgbDropdownModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
